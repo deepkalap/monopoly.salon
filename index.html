@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Monopoly Hair Salon</title>
+<style>
+/* ========= GLOBAL ========= */
+* {margin:0; padding:0; box-sizing:border-box; font-family:"Poppins",sans-serif;}
+body {background-color:#fffdf9; color:#333; line-height:1.6;}
+a {text-decoration:none; color:inherit;}
+
+/* ========= HEADER ========= */
+header {
+  background:linear-gradient(135deg,#c79a63,#b26d45);
+  color:white; text-align:center; padding:40px 20px;
+  box-shadow:0 4px 8px rgba(0,0,0,0.15);
+}
+header h1 {font-size:2.8rem;}
+header p {font-size:1.2rem; margin-top:8px;}
+
+/* ========= NAV ========= */
+nav {
+  background:#fffaf4;
+  display:flex; justify-content:center; flex-wrap:wrap;
+  border-bottom:1px solid #f0e2d0;
+}
+nav a {
+  margin:10px 20px; font-weight:600; color:#b26d45;
+  transition:color 0.3s;
+}
+nav a:hover {color:#000;}
+
+/* ========= HERO ========= */
+.hero {
+  background:url("https://i.pinimg.com/736x/d5/0f/a4/d50fa4634b54b94625fda90f3c0dc1f1.jpg") no-repeat center/cover;
+  color:white; text-align:center; padding:100px 20px; position:relative;
+}
+.hero::after {content:""; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.4);}
+.hero h2 {position:relative; z-index:2; font-size:2.5rem;}
+
+/* ========= GRID ========= */
+section h2 {text-align:center; margin:40px 0 20px; color:#b26d45; font-size:2rem;}
+.hairstyles {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px; padding:20px;
+}
+.card {
+  background:white; border-radius:15px; overflow:hidden;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  transition:transform 0.3s, box-shadow 0.3s;
+}
+.card:hover {transform:scale(1.04); box-shadow:0 6px 16px rgba(0,0,0,0.2);}
+.card img {width:100%; height:220px; object-fit:cover;}
+.card-content {padding:15px; text-align:center;}
+.card-content h3 {color:#333; margin-bottom:8px;}
+.price {color:#c79a63; font-weight:bold; margin:10px 0;}
+
+button {
+  background:#c79a63; color:white; border:none; padding:10px 20px;
+  border-radius:30px; cursor:pointer; transition:0.3s;
+}
+button:hover {background:#b26d45;}
+
+/* ========= FORM SECTIONS ========= */
+.form-section {
+  display:none; max-width:600px; margin:40px auto; background:white;
+  padding:30px; border-radius:15px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+.form-section h2 {color:#b26d45; text-align:center; margin-bottom:20px;}
+label {display:block; margin:15px 0 5px; font-weight:bold;}
+input, select, textarea {
+  width:100%; padding:10px; border-radius:8px; border:1px solid #ccc;
+  margin-bottom:10px; resize:none;
+}
+.payment-methods img {width:50px; margin:10px;}
+.success {text-align:center; padding:60px 20px;}
+.success h2 {color:#28a745; font-size:2rem;}
+
+/* ========= ABOUT ========= */
+.about {
+  max-width:900px; margin:50px auto; background:white;
+  padding:40px; border-radius:15px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+.about p {margin-bottom:15px; text-align:justify;}
+
+/* ========= WHY CHOOSE US ========= */
+.choose-us {
+  max-width:900px; margin:50px auto; background:white;
+  padding:40px; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+.choose-us ul {list-style:none; padding-left:0;}
+.choose-us li {
+  padding:15px 0; border-bottom:1px solid #f0e2d0;
+  font-weight:bold; color:#b26d45;
+}
+.choose-us li:last-child {border:none;}
+
+/* ========= CONTACT ========= */
+.contact {
+  max-width:900px; margin:50px auto; background:white;
+  padding:40px; border-radius:15px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+.contact iframe {width:100%; height:300px; border-radius:10px; margin-top:15px;}
+
+/* ========= FOOTER ========= */
+footer {
+  text-align:center; background:#fffaf4;
+  padding:20px; margin-top:50px;
+  border-top:1px solid #f0e2d0; color:#333;
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <h1>Monopoly Hair Salon</h1>
+  <p>Where Style Meets Perfection</p>
+</header>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="#home">Home</a>
+  <a href="#men">Men</a>
+  <a href="#women">Women</a>
+  <a href="#children">Children</a>
+  <a href="#about">About Us</a>
+  <a href="#choose-us">Why Choose Us</a>
+  <a href="#booking">Book Now</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <h2>Book Your Perfect Look Today ✂️</h2>
+</section>
+
+<!-- MEN -->
+<section id="men">
+  <h2>Men’s Hairstyles</h2>
+  <div class="hairstyles">
+    <div class="card">
+      <img src="file:///C:/Users/acer/Desktop/fade.png">
+      <div class="card-content">
+        <h3>Fade Cut</h3><p class="price">₹400</p>
+        <button onclick="bookService('Fade Cut',400)">Book Appointment</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="file:///C:/Users/acer/Desktop/trim.png">
+      <div class="card-content">
+        <h3>Classic Trim</h3><p class="price">₹300</p>
+        <button onclick="bookService('Classic Trim',300)">Book Appointment</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="file:///C:/Users/acer/Desktop/brerd.png">
+      <div class="card-content">
+        <h3>Beard Grooming</h3><p class="price">₹250</p>
+        <button onclick="bookService('Beard Grooming',250)">Book Appointment</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WOMEN -->
+<section id="women">
+  <h2>Women’s Hairstyles</h2>
+  <div class="hairstyles">
+    <div class="card">
+      <img src="file:///C:/Users/acer/Desktop/layer.png">
+      <div class="card-content">
+        <h3>Layer Cut</h3><p class="price">₹700</p>
+        <button onclick="bookService('Layer Cut',700)">Book Appointment</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="file:///C:/Users/acer/Desktop/spa.png">
+      <div class="card-content">
+        <h3>Hair Spa</h3><p class="price">₹1200</p>
+        <button onclick="bookService('Hair Spa',1200)">Book Appointment</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="file:///C:/Users/acer/Desktop/colour.png">
+      <div class="card-content">
+        <h3>Balayage Color</h3><p class="price">₹2500</p>
+        <button onclick="bookService('Balayage Color',2500)">Book Appointment</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHILDREN -->
+<section id="children">
+  <h2>Children’s Hairstyles</h2>
+  <div class="hairstyles">
+    <div class="card">
+      <img src="file:///C:/Users/acer/Desktop/boy.png">
+      <div class="card-content">
+        <h3>Boys Cut</h3><p class="price">₹250</p>
+        <button onclick="bookService('Boys Cut',250)">Book Appointment</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="file:///C:/Users/acer/Desktop/girl.png">
+      <div class="card-content">
+        <h3>Girls Trim</h3><p class="price">₹300</p>
+        <button onclick="bookService('Girls Trim',300)">Book Appointment</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="file:///C:/Users/acer/Desktop/style.png">
+      <div class="card-content">
+        <h3>Kids Styling</h3><p class="price">₹350</p>
+        <button onclick="bookService('Kids Styling',350)">Book Appointment</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+  <h2>About Us</h2>
+  <p>At Monopoly Hair Salon, your hair is your crown. We offer premium haircuts, color, spa, and bridal services with top-quality products and expert stylists.</p>
+  <p>Founded with the vision to redefine the beauty industry, we create a relaxing and luxurious experience for everyone.</p>
+  <p><strong>Location:</strong> Khopoli, India<br><strong>Open:</strong> 10 AM – 9 PM<br><strong>Call:</strong> +91 98765 43210</p>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section id="choose-us" class="choose-us">
+  <h2>Why Choose Us</h2>
+  <ul>
+    <li>Expert Stylists with Years of Experience</li>
+    <li>Latest Hair Trends and Modern Techniques</li>
+    <li>Premium, Salon-Grade Products</li>
+    <li>Luxurious and Relaxing Ambiance</li>
+    <li>Personalized Services Tailored to You</li>
+  </ul>
+</section>
+
+<!-- BOOKING -->
+<section id="booking" class="form-section">
+  <h2>Book Your Appointment</h2>
+  <div id="service-details"></div>
+  <label>Name:</label><input type="text" id="name" placeholder="Your Name">
+  <label>Date:</label><input type="date" id="date">
+  <label>Time:</label><input type="time" id="time">
+  <button onclick="goToPayment()">Proceed to Payment</button>
+</section>
+
+<!-- PAYMENT -->
+<section id="payment" class="form-section">
+  <h2>Payment</h2>
+  <label>Select Payment Method:</label>
+  <select id="payment-method">
+    <option value="upi">UPI</option>
+    <option value="card">Credit/Debit Card</option>
+    <option value="cash">Cash</option>
+  </select>
+  <div class="payment-methods">
+    <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/phonepe-icon.png">
+    <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/google-pay-icon.png">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png">
+  </div>
+  <button onclick="completePayment()">Complete Booking</button>
+</section>
+
+<!-- PAYMENT SUCCESS -->
+<section id="payment-success" class="form-section success">
+  <h2>Appointment Confirmed 🎉</h2>
+  <p>Thank you for booking with Monopoly Hair Salon!</p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <h2>Contact Us</h2>
+  <p>Have questions or need help booking? Reach us below:</p>
+  <form>
+    <label>Your Name:</label><input type="text" placeholder="Enter your name">
+    <label>Email:</label><input type="email" placeholder="Enter your email">
+    <label>Message:</label><textarea rows="5" placeholder="Write your message"></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60312.119306229354!2d73.332!3d18.9105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be79e38e0b4c6d5%3A0x28b0f9d02aef6c2!2sKhopoli%2C%20Maharashtra%2C%20India!5e0!3m2!1sen!2sin!4v1701000000000" 
+  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Monopoly Hair Salon | Designed by Deep Kalap</p>
+</footer>
+
+<script>
+let selectedService = {};
+
+function bookService(service, price){
+  selectedService = {service, price};
+  document.getElementById("service-details").innerHTML =
+    `<p><strong>Service:</strong> ${service}</p><p><strong>Price:</strong> ₹${price}</p>`;
+  showSection("booking");
+}
+
+function goToPayment(){
+  const name=document.getElementById("name").value;
+  const date=document.getElementById("date").value;
+  const time=document.getElementById("time").value;
+  if(!name||!date||!time){alert("Please fill all booking details.");return;}
+  showSection("payment");
+}
+
+function completePayment(){
+  showSection("payment-success");
+}
+
+function showSection(id){
+  ["booking","payment","payment-success"].forEach(sec=>{
+    document.getElementById(sec).style.display="none";
+  });
+  document.getElementById(id).style.display="block";
+  window.location.hash=id;
+}
+</script>
+</body>
+</html>
+
